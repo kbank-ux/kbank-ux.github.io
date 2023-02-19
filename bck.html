@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <title>케미코드 럭키드로우</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <style type="text/css">
+      .lottery-box {
+        width: 1fr;
+        height: 200px;
+        border: 5px solid gray;
+        background-color: #f2f2f2;
+        margin-bottom: 20px;
+      }
+      .request-ticket {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-size: 80pt;
+        line-height: 145pt;
+        height: 1fr;
+        text-align: center;
+        font-weight: 700;
+      }
+      .draw-btn {
+        width: 300px;
+        height: 40px;
+        font-size: 15pt;
+        font-weight: 700;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        let tickets = [];
+        let history = [];
+        $.getJSON("tickets.json", function (data) {
+          tickets = data;
+          displayTicketList();
+        });
+
+        function displayTicketList() {
+          $("#ticket-list ul").empty();
+          tickets.forEach(function (ticket) {
+            if (ticket[1] > 0) {
+              for (let i = 0; i < ticket[1]; i++) {
+                $("#ticket-list ul").append("<li>" + ticket[0] + "</li>");
+              }
+            }
+          });
+        }
+
+        $("#draw-btn").click(function () {
+          let all_tickets_used = tickets.every((ticket) => ticket[1] === 0);
+          if (all_tickets_used) {
+            let restart = confirm(
+              "준비된 응모권이 모두 추첨되었습니다. 다시 시작할까요?"
+            );
+            if (restart) {
+              history = [];
+              tickets = [];
+              $.getJSON("tickets.json", function (data) {
+                tickets = data;
+                displayTicketList();
+              });
+              $("#history ul").empty();
+            }
+          }
+
+          let available_tickets = tickets.filter((ticket) => ticket[1] > 0);
+          if (available_tickets.length > 0) {
+            // Calculate the total number of available tickets
+            let total_available_tickets = available_tickets.reduce(
+              (acc, cur) => acc + cur[1],
+              0
+            );
+            // Spin the slot machine
+            let spin_count = 20; // The number of times to spin the slot machine
+            let spin_interval = 30; // The interval between each spin in milliseconds
+            let ticket_probabilities = available_tickets.map(
+              (ticket) => ticket[1] / total_available_tickets
+            );
+            let current_spin_count = 0;
+            let slot_machine = setInterval(function () {
+              let random_prob = Math.random();
+              let selected_index = 0;
+              let cumulative_prob = ticket_probabilities[0];
+              while (
+                random_prob > cumulative_prob &&
+                selected_index < ticket_probabilities.length - 1
+              ) {
+                selected_index++;
+                cumulative_prob += ticket_probabilities[selected_index];
+              }
+              let selected_ticket = available_tickets[selected_index];
+              $(".request-ticket").text(selected_ticket[0]);
+              current_spin_count++;
+              $(".request-ticket").animate(
+                {
+                  marginTop: "50px"
+                },
+                spin_interval,
+                function () {
+                  $(this)
+                    .text(selected_ticket[0])
+                    .css("marginTop", "-50px")
+                    .animate(
+                      {
+                        marginTop: "0px"
+                      },
+                      spin_interval
+                    );
+                }
+              );
+
+              if (current_spin_count === spin_count) {
+                clearInterval(slot_machine);
+                setTimeout(function () {
+                  history.push(selected_ticket[0]);
+                  tickets = tickets.map((ticket) => {
+                    if (ticket[0] === selected_ticket[0]) {
+                      //ticket[1]--; // 한번 당첨되면 응모권 1개만 제거
+                      ticket[1] = 0; // 한번 당첨되면 남은 응모권 모두 제거
+                    }
+                    return ticket;
+                  });
+                  $("#history ol").empty();
+                  $.each(history, function (i, number) {
+                    $("#history ol").append("<li>" + number + "</li>");
+                  });
+                  displayTicketList();
+                }, 300);
+              }
+            }, spin_interval * 1.5);
+          } else {
+            $(".request-ticket").text("empty");
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div style="text-align: center; width: 300px;">
+      <h1>케미코드 럭키드로우</h1>
+      <div class="lottery-box">
+        <div class="request-ticket"></div>
+      </div>
+      <button class="draw-btn" id="draw-btn">추첨하기</button>
+
+      <div style="text-align: left; margin: 0;">
+        <h3>추첨번호 History</h3>
+        <div id="history" style="text-align: left; font-weight: 700;">
+          <ol></ol>
+        </div>
+      </div>
+
+      <div style="text-align: left; margin: 0;">
+        <h3>남은 응모권 List</h3>
+        <div id="ticket-list" style="text-align: left;">
+          <ul></ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

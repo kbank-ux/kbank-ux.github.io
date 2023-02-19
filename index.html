@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <title>케미코드 럭키드로우</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <style type="text/css">
+      .lottery-box {
+        width: 1fr;
+        height: 200px;
+        border: 5px solid gray;
+        background-color: #f2f2f2;
+        margin-bottom: 20px;
+      }
+      .request-ticket {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-size: 80pt;
+        line-height: 145pt;
+        height: 1fr;
+        text-align: center;
+        font-weight: 700;
+      }
+      .draw-btn {
+        width: 100%;
+        height: 100px;
+        font-size: 11pt;
+        line-height: 150%;
+        font-weight: 400;
+      }
+      table {
+        margin: 0;
+        padding: 0;
+        border-top: 0.5px solid gray;
+        border-bottom: 0.5px solid gray;
+        border-right: 0.5px solid gray;
+      }
+
+      table td,
+      table th {
+        width: 10%;
+        padding: 10px;
+        margin: 0;
+        vertical-align: top;
+        border-left: 0.5px solid gray;
+      }
+
+      div.ticket-list-all ul li {
+        display: inline-block;
+        width: 20%;
+        box-sizing: border-box;
+      }
+
+      ul {
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+
+      ol {
+        text-align: left;
+        margin: 0;
+        padding-left: 20px;
+        list-style-type: decimal;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        let tickets = [];
+        let history = [];
+        $.getJSON("tickets.json", function (data) {
+          tickets = data.ticket_all;
+          tickets_d1 = data.ticket_day1;
+          tickets_d2 = data.ticket_day2;
+          tickets_d3 = data.ticket_day3;
+          tickets_d4 = data.ticket_day4;
+          tickets_d5 = data.ticket_day5;
+          displayTicketList();
+        });
+        let bulkcount = 1;
+
+        function displayTicketList() {
+          $("[id^='ticket-list'] ul").empty();
+          tickets.forEach(function (ticket) {
+            if (ticket[1] > 0) {
+              for (let i = 0; i < ticket[1]; i++) {
+                $("#ticket-list ul").append("<li>" + ticket[0] + "</li>");
+              }
+            }
+          });
+          tickets_d1.forEach(function (ticket) {
+            if (ticket[1] > 0) {
+              for (let i = 0; i < ticket[1]; i++) {
+                $("#ticket-list-1 ul").append("<li>" + ticket[0] + "</li>");
+              }
+            }
+          });
+          tickets_d2.forEach(function (ticket) {
+            if (ticket[1] > 0) {
+              for (let i = 0; i < ticket[1]; i++) {
+                $("#ticket-list-2 ul").append("<li>" + ticket[0] + "</li>");
+              }
+            }
+          });
+          tickets_d3.forEach(function (ticket) {
+            if (ticket[1] > 0) {
+              for (let i = 0; i < ticket[1]; i++) {
+                $("#ticket-list-3 ul").append("<li>" + ticket[0] + "</li>");
+              }
+            }
+          });
+          tickets_d4.forEach(function (ticket) {
+            if (ticket[1] > 0) {
+              for (let i = 0; i < ticket[1]; i++) {
+                $("#ticket-list-4 ul").append("<li>" + ticket[0] + "</li>");
+              }
+            }
+          });
+          tickets_d5.forEach(function (ticket) {
+            if (ticket[1] > 0) {
+              for (let i = 0; i < ticket[1]; i++) {
+                $("#ticket-list-5 ul").append("<li>" + ticket[0] + "</li>");
+              }
+            }
+          });
+        }
+
+        $(".draw-btn").click(function () {
+          var callerName = $(this).attr("id");
+          let available_tickets = tickets.filter((ticket) => ticket[1] > 0);
+          if (callerName == "draw-btn1") {
+            available_tickets = tickets_d1.filter((ticket) => ticket[1] > 0);
+          } else if (callerName == "draw-btn2") {
+            available_tickets = tickets_d2.filter((ticket) => ticket[1] > 0);
+          } else if (callerName == "draw-btn3") {
+            available_tickets = tickets_d3.filter((ticket) => ticket[1] > 0);
+          } else if (callerName == "draw-btn4") {
+            available_tickets = tickets_d4.filter((ticket) => ticket[1] > 0);
+          } else if (callerName == "draw-btn5") {
+            available_tickets = tickets_d5.filter((ticket) => ticket[1] > 0);
+          }
+
+          if (callerName == "draw-btn0a") {
+            bulkcount = 10;
+          } else if (callerName == "draw-btn0b") {
+            bulkcount = 5;
+          } else {
+            bulkcount = 1;
+          }
+
+          if (available_tickets.length > 0) {
+            // Calculate the total number of available tickets
+            let total_available_tickets = available_tickets.reduce(
+              (acc, cur) => acc + cur[1],
+              0
+            );
+            // Spin the slot machine
+            let spin_count = 20; // The number of times to spin the slot machine
+            let spin_interval = 30; // The interval between each spin in milliseconds
+            let ticket_probabilities = available_tickets.map(
+              (ticket) => ticket[1] / total_available_tickets
+            );
+            let current_spin_count = 0;
+            let slot_machine = setInterval(function () {
+              let random_prob = Math.random();
+              let selected_index = 0;
+              let cumulative_prob = ticket_probabilities[0];
+              while (
+                random_prob > cumulative_prob &&
+                selected_index < ticket_probabilities.length - 1
+              ) {
+                selected_index++;
+                cumulative_prob += ticket_probabilities[selected_index];
+              }
+              let selected_ticket = available_tickets[selected_index];
+
+              $(".request-ticket").text(selected_ticket[0]);
+              current_spin_count++;
+              $(".request-ticket").animate(
+                {
+                  marginTop: "50px"
+                },
+                spin_interval,
+                function () {
+                  $(this)
+                    .text(selected_ticket[0])
+                    .css("marginTop", "-50px")
+                    .animate(
+                      {
+                        marginTop: "0px"
+                      },
+                      spin_interval
+                    );
+                }
+              );
+
+              if (current_spin_count === spin_count) {
+                clearInterval(slot_machine);
+                let dup_check = [];
+                for (i = 1; i <= bulkcount; i++) {
+                  let random_prob = Math.random();
+                  let selected_index = 0;
+                  let cumulative_prob = ticket_probabilities[0];
+                  if (i > ticket_probabilities.length) break;
+
+                  while (
+                    random_prob > cumulative_prob &&
+                    selected_index < ticket_probabilities.length - 1
+                  ) {
+                    selected_index++;
+                    cumulative_prob += ticket_probabilities[selected_index];
+                  }
+                  let selected_ticket = available_tickets[selected_index];
+                  let dup = 0;
+                  for (j = 0; j <= i - 1; j++) {
+                    if (dup_check[j] == selected_ticket[0]) {
+                      dup = 1;
+                      break;
+                    }
+                  }
+                  if (dup == 1) {
+                    i--;
+                    continue;
+                  } else {
+                    dup_check[i] = selected_ticket[0];
+                  }
+
+                  setTimeout(function () {
+                    history.push([callerName, selected_ticket[0]]);
+                    if (callerName == "draw-btn1") {
+                      tickets_d1 = tickets_d1.map((ticket) => {
+                        if (ticket[0] === selected_ticket[0]) {
+                          ticket[1] = 0;
+                        }
+                        return ticket;
+                      });
+                    } else if (callerName == "draw-btn2") {
+                      tickets_d2 = tickets_d2.map((ticket) => {
+                        if (ticket[0] === selected_ticket[0]) {
+                          ticket[1] = 0;
+                        }
+                        return ticket;
+                      });
+                    } else if (callerName == "draw-btn3") {
+                      tickets_d3 = tickets_d3.map((ticket) => {
+                        if (ticket[0] === selected_ticket[0]) {
+                          ticket[1] = 0;
+                        }
+                        return ticket;
+                      });
+                    } else if (callerName == "draw-btn4") {
+                      tickets_d4 = tickets_d4.map((ticket) => {
+                        if (ticket[0] === selected_ticket[0]) {
+                          ticket[1] = 0;
+                        }
+                        return ticket;
+                      });
+                    } else if (callerName == "draw-btn5") {
+                      tickets_d5 = tickets_d5.map((ticket) => {
+                        if (ticket[0] === selected_ticket[0]) {
+                          ticket[1] = 0;
+                        }
+                        return ticket;
+                      });
+                    } else {
+                      tickets = tickets.map((ticket) => {
+                        if (ticket[0] === selected_ticket[0]) {
+                          //ticket[1]--; // 한번 당첨되면 응모권 1개만 제거
+                          ticket[1] = 0; // 한번 당첨되면 남은 응모권 모두 제거
+                        }
+                        return ticket;
+                      });
+                    }
+                    $("[id^='history-draw-btn'] ol").empty();
+                    $.each(history, function (i, number) {
+                      $("#history-" + number[0] + " ol").append(
+                        "<li>" + number[1] + "</li>"
+                      );
+                    });
+                    displayTicketList();
+                  }, 300);
+                }
+              }
+            }, spin_interval * 1.5);
+          } else {
+            $(".request-ticket").text("Empty");
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <table>
+        <tr>
+          <td colspan="9" style="text-align: center; width: 100vw;">
+            <h1>케미코드 럭키드로우</h1>
+            <div class="lottery-box">
+              <div class="request-ticket"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button class="draw-btn" id="draw-btn0a">
+              럭키드로우<br />커피교환권<br />추첨하기<br />(10명씩 - 총70명)
+            </button>
+
+            <div>
+              <h4>[당첨번호]</h4>
+              <div
+                class="history-draw"
+                id="history-draw-btn0a"
+                style="text-align: left; font-weight: 700;"
+              >
+                <ol></ol>
+              </div>
+            </div>
+          </td>
+          <td>
+            <button class="draw-btn" id="draw-btn0b">
+              럭키드로우<br />올리브영 Gift카드<br />추첨하기<br />(5명씩 -
+              총20명)
+            </button>
+
+            <div>
+              <h4>[당첨번호]</h4>
+              <div
+                class="history-draw"
+                id="history-draw-btn0b"
+                style="text-align: left; font-weight: 700;"
+              >
+                <ol></ol>
+              </div>
+            </div>
+          </td>
+          <td>
+            <button class="draw-btn" id="draw-btn0c">
+              럭키드로우<br />교촌치킨<br />추첨하기<br />(1명씩 - 총10명)
+            </button>
+
+            <div>
+              <h4>[당첨번호]</h4>
+              <div
+                class="history-draw"
+                id="history-draw-btn0c"
+                style="text-align: left; font-weight: 700;"
+              >
+                <ol></ol>
+              </div>
+            </div>
+          </td>
+          <td>
+            <button class="draw-btn" id="draw-btn0d">
+              럭키드로우<br />이마트트레이더스<br />추첨하기<br />(오직 1명)
+            </button>
+
+            <div>
+              <h4>[당첨번호]</h4>
+              <div
+                class="history-draw"
+                id="history-draw-btn0d"
+                style="text-align: left; font-weight: 700;"
+              >
+                <ol></ol>
+              </div>
+            </div>
+          </td>
+          <td>
+            <button class="draw-btn" id="draw-btn1">
+              1일차 특별선물<br />에어팟 프로<br />추첨하기<br />(1일차에서 1명)
+            </button>
+
+            <div>
+              <h4>[당첨번호]</h4>
+              <div
+                class="history-draw"
+                id="history-draw-btn1"
+                style="text-align: left; font-weight: 700;"
+              >
+                <ol></ol>
+              </div>
+            </div>
+          </td>
+          <td>
+            <button class="draw-btn" id="draw-btn2">
+              2일차 특별선물<br />팀 회식비<br />추첨하기<br />(2일차에서 1명)
+            </button>
+
+            <div>
+              <h4>[당첨번호]</h4>
+              <div
+                class="history-draw"
+                id="history-draw-btn2"
+                style="text-align: left; font-weight: 700;"
+              >
+                <ol></ol>
+              </div>
+            </div>
+          </td>
+          <td>
+            <button class="draw-btn" id="draw-btn3">
+              3일차 특별선물<br />황금열쇠 1돈<br />추첨하기<br />(3일차에서
+              1명)
+            </button>
+
+            <div>
+              <h4>[당첨번호]</h4>
+              <div
+                class="history-draw"
+                id="history-draw-btn3"
+                style="text-align: left; font-weight: 700;"
+              >
+                <ol></ol>
+              </div>
+            </div>
+          </td>
+          <td>
+            <button class="draw-btn" id="draw-btn4">
+              4일차 특별선물<br />나이키 상품권<br />추첨하기<br />(4일차에서
+              1명)
+            </button>
+
+            <div>
+              <h4>[당첨번호]</h4>
+              <div
+                class="history-draw"
+                id="history-draw-btn4"
+                style="text-align: left; font-weight: 700;"
+              >
+                <ol></ol>
+              </div>
+            </div>
+          </td>
+          <td>
+            <button class="draw-btn" id="draw-btn5">
+              5일차 특별선물<br />주유 할인권<br />추첨하기<br />(5일차에서 1명)
+            </button>
+
+            <div>
+              <h4>[당첨번호]</h4>
+              <div
+                class="history-draw"
+                id="history-draw-btn5"
+                style="text-align: left; font-weight: 700;"
+              >
+                <ol></ol>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <div style="witdth = 100%;">
+              <h4>[남은 응모권]</h4>
+              <div
+                class="ticket-list-all"
+                id="ticket-list"
+                style="text-align: left;"
+              >
+                <ul></ul>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div style="text-align: left; margin: 0;">
+              <h4>[남은 응모권]</h4>
+              <div id="ticket-list-1" style="text-align: left;">
+                <ul></ul>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div style="text-align: left; margin: 0;">
+              <h4>[남은 응모권]</h4>
+              <div id="ticket-list-2" style="text-align: left;">
+                <ul></ul>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div style="text-align: left; margin: 0;">
+              <h4>[남은 응모권]</h4>
+              <div id="ticket-list-3" style="text-align: left;">
+                <ul></ul>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div style="text-align: left; margin: 0;">
+              <h4>[남은 응모권]</h4>
+              <div id="ticket-list-4" style="text-align: left;">
+                <ul></ul>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div style="text-align: left; margin: 0;">
+              <h4>[남은 응모권]</h4>
+              <div id="ticket-list-5" style="text-align: left;">
+                <ul></ul>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
