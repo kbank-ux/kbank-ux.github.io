@@ -66,7 +66,7 @@ $(document).ready(function () {
   $(".draw-btn").click(function () {
     var callerName = $(this).attr("id");
     let available_tickets = tickets.filter((ticket) => ticket[1] > 0);
-    if (callerName === "draw-btn0g") {
+    if (callerName === "draw-btn1") {
       available_tickets = tickets_d1.filter((ticket) => ticket[1] > 0);
     } else if (callerName === "draw-btn2") {
       available_tickets = tickets_d2.filter((ticket) => ticket[1] > 0);
@@ -90,7 +90,7 @@ $(document).ready(function () {
       bulkcount = 8;
     }else if (callerName === "draw-btn0f") {
       bulkcount = 8;
-    } else if (callerName === "draw-btn0g") {
+    } else if (callerName === "draw-btn1") {
       bulkcount = 10;
     } else {
       bulkcount = 1;
