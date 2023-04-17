@@ -35,6 +35,7 @@ html {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
+  border: 0;
 }
 table {
   margin: 0;
