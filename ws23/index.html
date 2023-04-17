@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
   <head>
-    <title>케미코드 럭키드로우</title>
+    <title>조편성 추첨을 해봅시다</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
     <link rel="stylesheet" href="style.css">
@@ -16,23 +16,18 @@
       <table>
         <tr>
           <td colspan="9" style="text-align: center; width: 100vw;">
-            <h1>케미코드 럭키드로우</h1>
+            <h1>조편성 추첨을 해봅시다</h1>
             <div class="lottery-box">
               <div class="request-ticket"></div>
             </div>
           </td>
         </tr>
         <tr>
-            <td colspan="4">
+            <td colspan="5">
               <div style="width : 100%;text-align:center;height:20px;padding-bottom: 10px">
                 <h3>🎁 한번이라도 참여했다면 🎁</h3>
               </div>
             </td>
-            <td colspan="5">
-                <div style="width : 100%; text-align:center;height:20px;padding-bottom: 10px">
-                    <h3>🎉 코드별 잇아이템 🎉</h3>
-                </div>
-              </td>
         <tr>
           <td>            
             <div style="height:40px;padding: 10px 0px 0px 10px">
@@ -114,101 +109,26 @@
               </div>
             </div>
           </td>
-          <td>Code ❶ <br /> 공감하는 전문가를 위한<br />
-            <span style="font-size: 13px"><br />에어팟 프로2세대</span><br />“귀기울여 들어요”<br/>
-            <div style="height:120px;padding: 30px 0px 0px 0px"><img src = img/1.png width=100px>
-            </div>
-            <button class="draw-btn" id="draw-btn1">
-              오직1명!
-            </button>
+          <td>
+            <div style="height:40px;padding: 10px 0px 0px 0px">
+                <img src = img/e.png width=120px>
+              </div>신세계 상품권 10만원권<br /> x 1명<br />
 
-            <div style="text-align:left">
-              <h4>[당첨번호]</h4>
-              <div
-                class="history-draw"
-                id="history-draw-btn1"
-                style="text-align: left; font-weight: 700;"
-              >
-                <ol></ol>
-              </div>
-            </div>
-          </td>
-          <td>Code ❷ <br /> 케미좋은 팀플레이어를 위한<br />
-            <span style="font-size: 13px"><br />회식비 30만원</span><br />“밥이라도 먹어가며 해요”<br/>
-            <div style="height:120px;padding: 30px 0px 00px 0px"><img src = img/2.png width=120px >
-            </div>
-            <button class="draw-btn" id="draw-btn2">
-                오직1명!
-            </button>
+          <button class="draw-btn" id="draw-btn0e">
+            오직 1명!
+          </button>
 
-            <div style="text-align:left">
-              <h4>[당첨번호]</h4>
-              <div
-                class="history-draw"
-                id="history-draw-btn2"
-                style="text-align: left; font-weight: 700;"
-              >
-                <ol></ol>
-              </div>
+          <div style="text-align:left">
+            <h4>[당첨번호]</h4>
+            <div
+              class="history-draw"
+              id="history-draw-btn0e"
+              style="text-align: left; font-weight: 700;"
+            >
+              <ol></ol>
             </div>
-          </td>
-          <td>Code ❸ <br /> 끈질긴 문제해결사를 위한<br />
-            <span style="font-size: 13px"><br />황금열쇠 1돈</span><br />“열쇠가 그대 손에 달렸어요”<br/>
-            <div style="height:120px;padding: 15px 0px 15px 0px"><img src = img/3.png width=120px>
-            </div>
-              <button class="draw-btn" id="draw-btn3">
-                오직1명!
-            </button>
-
-            <div  style="text-align:left">
-              <h4>[당첨번호]</h4>
-              <div
-                class="history-draw"
-                id="history-draw-btn3"
-                style="text-align: left; font-weight: 700;"
-              >
-                <ol></ol>
-              </div>
-            </div>
-          </td>
-          <td>Code ❹ <br /> 민첩한 실용주의자를 위한<br />
-            <span style="font-size: 13px"><br />나이키 상품권 30만원</span><br />“새 신을 신고 뛰어요”<br/>
-            <div style="height:120px;padding: 30px 0px 0px 0px"><br><img src = img/4.png width=100px>
-            </div>
-              <button class="draw-btn" id="draw-btn4">
-                오직1명!
-            </button>
-
-            <div style="text-align:left">
-              <h4>[당첨번호]</h4>
-              <div
-                class="history-draw"
-                id="history-draw-btn4"
-                style="text-align: left; font-weight: 700;"
-              >
-                <ol></ol>
-              </div>
-            </div>
-          </td>
-          <td>Code  ❺ <br /> 자율의 책임자를 위한<br />
-            <span style="font-size: 13px"><br />4가지 자율세트 중 택1</span><br />“자율적으로 골라봐요”<br/>
-            <div style="height:120px;padding: 30px 0px 0px 0px"><img src = img/5.png width=100px>
-            </div>
-            <button class="draw-btn" id="draw-btn5"> 
-              오직1명!
-            </button>
-
-            <div style="text-align:left">
-              <h4>[당첨번호]</h4>
-              <div
-                class="history-draw"
-                id="history-draw-btn5"
-                style="text-align: left; font-weight: 700;"
-              >
-                <ol></ol>
-              </div>
-            </div>
-          </td>
+          </div>
+        </td>
         </tr>
         <tr>
           <td colspan="4">
@@ -223,46 +143,7 @@
               </div>
             </div>
           </td>
-          <td>
-            <div style="text-align: left; margin: 0;">
-              <h4>[남은 응모권]</h4>
-              <div id="ticket-list-1" style="text-align: left;">
-                <ul></ul>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div style="text-align: left; margin: 0;">
-              <h4>[남은 응모권]</h4>
-              <div id="ticket-list-2" style="text-align: left;">
-                <ul></ul>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div style="text-align: left; margin: 0;">
-              <h4>[남은 응모권]</h4>
-              <div id="ticket-list-3" style="text-align: left;">
-                <ul></ul>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div style="text-align: left; margin: 0;">
-              <h4>[남은 응모권]</h4>
-              <div id="ticket-list-4" style="text-align: left;">
-                <ul></ul>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div style="text-align: left; margin: 0;">
-              <h4>[남은 응모권]</h4>
-              <div id="ticket-list-5" style="text-align: left;">
-                <ul></ul>
-              </div>
-            </div>
-          </td>
+        
         </tr>
       </table>
     </div>
