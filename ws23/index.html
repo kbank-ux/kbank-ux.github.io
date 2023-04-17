@@ -4,11 +4,11 @@
     <title>조편성 추첨을 해봅시다</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
   </head>
   <body>
     <div>
@@ -23,23 +23,23 @@
           </td>
         </tr>
         <tr>
-            <td colspan="5">
+            <td colspan="7">
               <div style="width : 100%;text-align:center;height:20px;padding-bottom: 10px">
-                <h3>🎁 한번이라도 참여했다면 🎁</h3>
+                <h3> 총 7개 조로 편성됩니다 </h3>
               </div>
             </td>
         <tr>
           <td>            
-            <div style="height:40px;padding: 10px 0px 0px 10px">
-            <img src = img/a.png width=150px>
+            <div style="height:80px;padding: 10px 0px 0px 10px">
+            <img src = img/key.png width=100px>
           </div>
-          스타벅스 카페라떼<br /> x 70명<br />
+          1조 x 9명<br />
             <button class="draw-btn" id="draw-btn0a">
-              70명 한번에 추첨!
+              한번에 추첨!
             </button>
 
             <div style="text-align:left">
-              <h4>[당첨번호]</h4>
+              <h4>[1조 명단]</h4>
               <div
                 class="history-draw"
                 id="history-draw-btn0a"
@@ -50,16 +50,16 @@
             </div>
           </td>
           <td>
-              <div style="height:40px;padding: 0px 0px 10px 0px">
-                  <img src = img/b.png width=100px>
+            <div style="height:80px;padding: 10px 0px 0px 10px">
+                  <img src = img/key.png width=100px>
                 </div>
-                교보문고 Gift카드 1만원<br /> x 20명<br />
+                2조 x 9명<br />
             <button class="draw-btn" id="draw-btn0b">
-              20명 한번에 추첨!
+              한번에 추첨!
             </button>
 
             <div style="text-align:left">
-              <h4>[당첨번호]</h4>
+              <h4>[2조 명단]</h4>
               <div
                 class="history-draw"
                 id="history-draw-btn0b"
@@ -70,16 +70,16 @@
             </div>
           </td>
           <td>
-              <div style="height:40px;padding: 0px 0px 10px 10px">
-                  <img src = img/c.png width=60px>
+            <div style="height:80px;padding: 10px 0px 0px 10px">
+                  <img src = img/key.png width=100px>
                 </div>
-                BHC 치킨 2마리 세트<br /> x 10명<br />
+                3조 x 8명<br />
             <button class="draw-btn" id="draw-btn0c">
-              1명씩 추첨!
+              한번에 추첨!
             </button>
 
             <div style="text-align:left">
-              <h4>[당첨번호]</h4>
+              <h4>[3조 명단]</h4>
               <div
                 class="history-draw"
                 id="history-draw-btn0c"
@@ -90,16 +90,17 @@
             </div>
           </td>
           <td>
-              <div style="height:40px;padding: 10px 0px 0px 0px">
-                  <img src = img/d.png width=120px>
-                </div>신세계 상품권 10만원권<br /> x 1명<br />
+            <div style="height:80px;padding: 10px 0px 0px 10px">
+                  <img src = img/key.png width=100px>
+                </div>
+                  4조 x 8명<br />
 
             <button class="draw-btn" id="draw-btn0d">
-              오직 1명!
+              한번에 추첨!
             </button>
 
             <div style="text-align:left">
-              <h4>[당첨번호]</h4>
+              <h4>[4조 명단]</h4>
               <div
                 class="history-draw"
                 id="history-draw-btn0d"
@@ -110,16 +111,17 @@
             </div>
           </td>
           <td>
-            <div style="height:40px;padding: 10px 0px 0px 0px">
-                <img src = img/e.png width=120px>
-              </div>신세계 상품권 10만원권<br /> x 1명<br />
+            <div style="height:80px;padding: 10px 0px 0px 10px">
+                <img src = img/key.png width=100px>
+              </div>
+                5조 x 8명<br />
 
           <button class="draw-btn" id="draw-btn0e">
-            오직 1명!
+            한번에 추첨!
           </button>
 
           <div style="text-align:left">
-            <h4>[당첨번호]</h4>
+            <h4>[5조 명단]</h4>
             <div
               class="history-draw"
               id="history-draw-btn0e"
@@ -129,11 +131,53 @@
             </div>
           </div>
         </td>
+        <td>
+          <div style="height:80px;padding: 10px 0px 0px 10px">
+              <img src = img/key.png width=100px>
+            </div>
+              6조 x 8명<br />
+
+        <button class="draw-btn" id="draw-btn0f">
+          한번에 추첨!
+        </button>
+
+        <div style="text-align:left">
+          <h4>[6조 명단]</h4>
+          <div
+            class="history-draw"
+            id="history-draw-btn0f"
+            style="text-align: left; font-weight: 700;"
+          >
+            <ol></ol>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div style="height:80px;padding: 10px 0px 0px 10px">
+            <img src = img/key.png width=100px>
+          </div>
+            7조 x 10명<br />
+
+      <button class="draw-btn" id="draw-btn0g">
+        한번에 추첨!
+      </button>
+
+      <div style="text-align:left">
+        <h4>[7조 명단]</h4>
+        <div
+          class="history-draw"
+          id="history-draw-btn0g"
+          style="text-align: left; font-weight: 700;"
+        >
+          <ol></ol>
+        </div>
+      </div>
+    </td>
         </tr>
         <tr>
-          <td colspan="4">
+          <td colspan="7">
             <div style="width :100%;">
-              <h4>[남은 응모권]</h4>
+              <h4>[남은 인재 POOL]</h4>
               <div
                 class="ticket-list-all"
                 id="ticket-list"

@@ -6,7 +6,7 @@ $(document).ready(function () {
   let tickets_d4 = [];
   let tickets_d5 = [];
   let history = [];
-  $.getJSON("tickets.json", function (data) {
+  $.getJSON("./tickets.json", function (data) {
     tickets = data.ticket_all;
     tickets_d1 = data.ticket_day1;
     tickets_d2 = data.ticket_day2;
@@ -79,9 +79,19 @@ $(document).ready(function () {
     }
 
     if (callerName === "draw-btn0a") {
-      bulkcount = 70;
+      bulkcount = 9;
     } else if (callerName === "draw-btn0b") {
-      bulkcount = 20;
+      bulkcount = 9;
+    }else if (callerName === "draw-btn0c") {
+      bulkcount = 8;
+    }else if (callerName === "draw-btn0b") {
+      bulkcount = 8;
+    }else if (callerName === "draw-btn0e") {
+      bulkcount = 8;
+    }else if (callerName === "draw-btn0f") {
+      bulkcount = 8;
+    } else if (callerName === "draw-btn0g") {
+      bulkcount = 10;
     } else {
       bulkcount = 1;
     }
