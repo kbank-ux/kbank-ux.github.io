@@ -84,7 +84,7 @@ $(document).ready(function () {
       bulkcount = 9;
     }else if (callerName === "draw-btn0c") {
       bulkcount = 8;
-    }else if (callerName === "draw-btn0b") {
+    }else if (callerName === "draw-btn0d") {
       bulkcount = 8;
     }else if (callerName === "draw-btn0e") {
       bulkcount = 8;
