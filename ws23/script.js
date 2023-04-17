@@ -29,7 +29,7 @@ $(document).ready(function () {
     tickets_d1.forEach(function (ticket) {
       if (ticket[1] > 0) {
         for (let i = 0; i < ticket[1]; i++) {
-          $("#ticket-list-1 ul").append("<li>" + ticket[0] + "</li>");
+          $("#ticket-list ul").append("<li>" + ticket[0] + "</li>");
         }
       }
     });
