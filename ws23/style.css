@@ -69,20 +69,9 @@ ul {
   list-style-type: circle !important;
 }
 
-div.history-draw-btn0a ol {
-  text-align: left;
-  margin: 0;
-  padding-left: 30px;
+.history-draw ol {
   list-style-type: circle !important;
 }
-
-div.history-draw-btn1 ol {
-  text-align: left;
-  margin: 0;
-  padding-left: 30px;
-  list-style-type:circle !important;
-}
-
 
 .password-container {
   text-align: center;
