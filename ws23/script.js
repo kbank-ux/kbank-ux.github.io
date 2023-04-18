@@ -240,10 +240,10 @@ $(document).ready(function () {
               $("[id^='history-draw-btn'] ol").empty();
               $.each(history, function (i, number) {
                 $("#history-" + number[0] + " ol").append(
-                  "<li>" + i+"번방 : "+number[1] + "</li>"
+                  "<li>" + Math.floor((i+1)/3)+1+"번방 : "+number[1] + "</li>"
                 );
               });
-              displayTicketList();
+              displayTicketList(); 
             }, 300);
           }
         }

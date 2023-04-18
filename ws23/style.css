@@ -76,7 +76,10 @@ ol {
   list-style-type: decimal;
 }
 
-.history-draw-btn1 ol {
+div.history-draw-btn1 ol {
+  list-style-type:none;
+}
+div.history-draw-btn1 ul {
   list-style-type:none;
 }
 
