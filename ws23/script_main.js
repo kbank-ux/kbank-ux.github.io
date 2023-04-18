@@ -6,8 +6,16 @@ $(document).ready(function () {
             $('#submit').on('click', function () {
                 const inputPassword = $('#password').val();
                 if (inputPassword === correctPassword.trim()) {
-                    $('.password-container').hide();
-                    $('.content').show();
+                    $.ajax({
+                        url: 'draw.html',
+                        dataType: 'html',
+                        success: function (content) {
+                            $('body').html(content);
+                        },
+                        error: function () {
+                            alert('draw.html 파일을 불러오지 못했습니다.');
+                        }
+                    });
                 } else {
                     $('.error-message').show();
                 }
