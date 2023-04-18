@@ -10,7 +10,14 @@ $(document).ready(function () {
                         url: 'draw.html',
                         dataType: 'html',
                         success: function (content) {
-                            $('body').html(content);
+                            const parser = new DOMParser();
+                            const htmlDoc = parser.parseFromString(content, 'text/html');
+
+                            const headContent = htmlDoc.head.innerHTML;
+                            const bodyContent = htmlDoc.body.innerHTML;
+
+                            $('head').html(headContent);
+                            $('body').html(bodyContent);
                         },
                         error: function () {
                             alert('draw.html 파일을 불러오지 못했습니다.');
