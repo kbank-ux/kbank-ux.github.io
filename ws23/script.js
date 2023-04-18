@@ -144,6 +144,7 @@ $(document).ready(function () {
         if (current_spin_count === spin_count) {
           clearInterval(slot_machine);
           let dup_check = [];
+
           for (i = 1; i <= bulkcount; i++) {
             let random_prob = Math.random();
             let selected_index = 0;
@@ -239,9 +240,14 @@ $(document).ready(function () {
               }
               $("[id^='history-draw-btn'] ol").empty();
               $.each(history, function (i, number) {
-                const roomno = (number[0]=="draw-btn1"||number[0]=="draw-btn2")?Math.floor((i)/3)+1+"번방 : ":"";
+                if((number[0]=="draw-btn1"||number[0]=="draw-btn2")&&i%3===0){
+                  $("#history-" + number[0] + " ol").append(
+                    "<li>" +"방편성 #"+(Math.floor((i)/3)+1)+ "　　</li>"
+                  );
+                }
+                const roomno = (number[0]=="draw-btn1"||number[0]=="draw-btn2")?"방편성 #"+(Math.floor((i)/3)+1)+" :":"";
                 $("#history-" + number[0] + " ol").append(
-                  "<li>" + roomno+number[1] + "</li>"
+                  "<li>" + number[1] + "</li>"
                 );
               });
               displayTicketList(); 
