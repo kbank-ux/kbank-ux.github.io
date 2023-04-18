@@ -239,8 +239,9 @@ $(document).ready(function () {
               }
               $("[id^='history-draw-btn'] ol").empty();
               $.each(history, function (i, number) {
+                const roomno = (number[0]=="draw-btn1"||number[0]=="draw-btn2")?Math.floor((i+1)/3)+1+"번방 : ":"";
                 $("#history-" + number[0] + " ol").append(
-                  "<li>" + Math.floor((i+1)/3)+1+"번방 : "+number[1] + "</li>"
+                  "<li>" + roomno+number[1] + "</li>"
                 );
               });
               displayTicketList(); 
