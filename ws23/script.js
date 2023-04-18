@@ -240,7 +240,7 @@ $(document).ready(function () {
               $("[id^='history-draw-btn'] ol").empty();
               $.each(history, function (i, number) {
                 $("#history-" + number[0] + " ol").append(
-                  "<li>" + number[1]/3 + "</li>"
+                  "<li>" + i+"번방 : "+number[1] + "</li>"
                 );
               });
               displayTicketList();

@@ -76,6 +76,10 @@ ol {
   list-style-type: decimal;
 }
 
+.history-draw-btn1 ol {
+  list-style-type:none;
+}
+
 
 .password-container {
   text-align: center;
