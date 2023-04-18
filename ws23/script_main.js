@@ -5,9 +5,14 @@ $(document).ready(function () {
         success: function (correctPassword) {
             $('#submit').on('click', function () {
                 const inputPassword = $('#password').val();
+                const selectedMode = $('#mode').val();
                 if (inputPassword === correctPassword.trim()) {
+                    let targetPage = 'draw.html';
+                    if (selectedMode === 'room') {
+                        targetPage = 'room.html';
+                    }
                     $.ajax({
-                        url: 'draw.html',
+                        url: targetPage,
                         dataType: 'html',
                         success: function (content) {
                             const parser = new DOMParser();
@@ -20,7 +25,7 @@ $(document).ready(function () {
                             $('body').html(bodyContent);
                         },
                         error: function () {
-                            alert('draw.html 파일을 불러오지 못했습니다.');
+                            alert(targetPage + ' 파일을 불러오지 못했습니다.');
                         }
                     });
                 } else {
