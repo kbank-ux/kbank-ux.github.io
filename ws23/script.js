@@ -92,6 +92,10 @@ $(document).ready(function () {
       bulkcount = 8;
     } else if (callerName === "draw-btn1") {
       bulkcount = 10;
+    }else if (callerName === "draw-btn1") {
+      bulkcount = 3;
+    }else if (callerName === "draw-btn2") {
+      bulkcount = 3;
     } else {
       bulkcount = 1;
     }

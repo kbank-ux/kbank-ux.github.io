@@ -11,13 +11,17 @@
 </head>
 <body>
     <div class="password-container" style="margin-top: 100px;">
-        <h1>비밀번호를 입력하세요</h1>
-        <input type="password" id="password" placeholder="비밀번호 입력">
-        <button id="submit">제출</button>
-        <p class="error-message" hidden>비밀번호가 틀렸습니다.</p>
-    </div>
-    <div class="content" hidden>
-        <!-- 웹사이트의 주요 콘텐츠를 여기에 배치하세요 -->
+        <label for="password">비밀번호:</label>
+        <input type="password" id="password">
+        <br>
+        <label for="mode">모드 선택:</label>
+        <select id="mode">
+            <option value="draw">조편성</option>
+            <option value="room">방배정</option>
+        </select>
+        <br>
+        <button id="submit">확인</button>
+        <p class="error-message" style="display:none;">비밀번호가 틀렸습니다.</p>
     </div>
 </body>
 </html>
