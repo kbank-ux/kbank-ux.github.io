@@ -79,17 +79,17 @@ $(document).ready(function () {
     }
 
     if (callerName === "draw-btn0a") {
-      bulkcount = 9;
+      bulkcount = 8;
     } else if (callerName === "draw-btn0b") {
-      bulkcount = 9;
+      bulkcount = 8;
     }else if (callerName === "draw-btn0c") {
       bulkcount = 8;
     }else if (callerName === "draw-btn0d") {
       bulkcount = 8;
     }else if (callerName === "draw-btn0e") {
-      bulkcount = 8;
+      bulkcount = 7;
     }else if (callerName === "draw-btn0f") {
-      bulkcount = 8;
+      bulkcount = 7;
     } else if (callerName === "draw-btn1") {
       bulkcount = 3;
     }else if (callerName === "draw-btn2") {
@@ -240,9 +240,11 @@ $(document).ready(function () {
               }
               $("[id^='history-draw-btn'] ol").empty();
               $.each(history, function (i, number) {
+
+              const roomnum = ["331호","332호","339호","341호","342호","343호","344호","345호","346호","348호","350호","431호","432호","439호","735호","737호","835호"];
                 if((number[0]=="draw-btn1"||number[0]=="draw-btn2")&&i%3===0){
                   $("#history-" + number[0] + " ol").append(
-                    "<li>" +"방편성 #"+(Math.floor((i)/3)+1)+ "　　</li>"
+                    "<li>" +"방편성 #"+(roomnum[Math.floor((i)/3)])+ "　　</li>"
                   );
                 }
                 const roomno = (number[0]=="draw-btn1"||number[0]=="draw-btn2")?"방편성 #"+(Math.floor((i)/3)+1)+" :":"";
