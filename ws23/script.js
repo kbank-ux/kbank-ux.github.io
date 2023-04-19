@@ -16,7 +16,6 @@ $(document).ready(function () {
     displayTicketList();
   });
   let bulkcount = 1;
-
   function displayTicketList() {
     $("[id^='ticket-list'] ul").empty();
     tickets.forEach(function (ticket) {
