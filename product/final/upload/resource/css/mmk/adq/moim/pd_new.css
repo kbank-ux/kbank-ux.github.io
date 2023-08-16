@@ -1,0 +1,227 @@
+@charset "UTF-8";
+
+/* 모임통장 */
+/* 공통 */
+.prd-detail-wrap {overflow-x: visible;}
+.prd-new-wrap .moim {position: relative; z-index: 0; height: 100%; background: #fff;}
+.prd-new-wrap .moim .moim-visually-hidden {overflow: hidden; position: absolute; width: 1px; height: 1px; padding: 0; border: 0; white-space: nowrap; clip: rect(0, 0, 0, 0); clip-path: inset(0 0 99.9% 99.9%);}
+.prd-new-wrap .moim .swiper-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1
+}
+.prd-new-wrap .moim .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: -webkit-transform;
+    -o-transition-property: transform;
+    transition-property: transform;
+    transition-property: transform,-webkit-transform;
+    transition-property: transform,-webkit-transform;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box
+}
+.prd-new-wrap .moim .swiper-slide {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: -webkit-transform;
+    -o-transition-property: transform;
+    transition-property: transform;
+    transition-property: transform,-webkit-transform;
+    transition-property: transform,-webkit-transform
+}
+
+/* 스티키 */
+.prd-new-wrap .moim .moim-sticky-wrappper {position: relative;}
+.prd-new-wrap .moim .moim-sticky {overflow: hidden; position: sticky; top: var(--header-height); height: calc(100vh - var(--header-height));}
+.prd-new-wrap .moim .moim-sticky-content {position: absolute; width: 100%; height: calc(100vh - var(--header-height));}
+
+/* section01 */
+.prd-new-wrap .moim .moim-section01-stage {height: 200vh;}
+.prd-new-wrap .moim .moim-section01 {position: relative; height: 100%; background: #fff;}
+.prd-new-wrap .moim .moim-section01-container {display: flex; justify-content: center; align-items: center; height: 100%;}
+.prd-new-wrap .moim .moim-section01-lottie {width: 100%; aspect-ratio: 1024 / 1820;}
+
+/* section02 */
+.prd-new-wrap .moim .moim-section02-stage {height: 200vh;}
+.prd-new-wrap .moim .moim-section02 {overflow: hidden; position: absolute; top: 0; z-index: 1; width: 100%; height: 100%; background: #2030ff; clip-path: inset(100%);}
+.prd-new-wrap .moim .moim-section02-container {display: flex; justify-content: center; align-items: flex-start; height: 100%;}
+.prd-new-wrap .moim .moim-section02-lottie {aspect-ratio: 1024 / 1820;}
+
+/* 모이면 모일수록 FUN해지는 우리 */
+.prd-new-wrap .moim .moim-sticky-wrappper-sction03 {background: #2030ff;}
+.prd-new-wrap .moim .moim-section03-stage {height: 200vh;}
+.prd-new-wrap .moim .moim-section03 {overflow: hidden; position: relative; z-index: 0; height: 100%; background: #2030ff; box-sizing: border-box;}
+.prd-new-wrap .moim .moim-section03-container {height: 100%;}
+.prd-new-wrap .moim .moim-section03-content {}
+.prd-new-wrap .moim .moim-section03-header {padding-top: calc(8rem / 3);}
+.prd-new-wrap .moim .moim-section03-title {color: #fff; font-weight: 700; font-size: calc(7.6rem / 3); text-align: center; letter-spacing: -0.05em; line-height: calc(99 / 76);}
+.prd-new-wrap .moim .moim-section03-title-block {display: block;}
+.prd-new-wrap .moim .moim-section03-subtext {padding-top: calc(5rem / 3); color: #e2dfff; font-size: calc(3.7rem / 3); text-align: center; line-height: calc(55 / 36);}
+.prd-new-wrap .moim .moim-section03-subtext-block {display: block;}
+.prd-new-wrap .moim .moim-section03-subtext-small {font-weight: 500; font-size: calc(2.6rem / 3);}
+.prd-new-wrap .moim .moim-section03-button-box {display: flex; justify-content: center; position: relative; z-index: 1; margin-top: calc(7.4rem / 3);}
+.prd-new-wrap .moim .moim-section03-link {display: flex; align-items: center; justify-content: center; width: calc(42.5rem / 3); height: calc(12rem / 3); border-radius: calc(6rem / 3); background: #17008c;}
+.prd-new-wrap .moim .moim-section03-link-text {padding-right: calc(3.3rem / 3); background: url(/resource/img/mmk/adq/moim/icon_arrow01.png) no-repeat right center / calc(1.4rem / 3) auto;  color: #fff; font-weight: 600; font-size: calc(4rem / 3);}
+.prd-new-wrap .moim .moim-section03-box {position: relative; margin-top: calc(-20rem / 3);}
+.prd-new-wrap .moim .moim-section03-arrow {position: absolute; top: 0; left: calc(-4rem / 3); width: calc(13.5rem / 2); aspect-ratio: 242 / 184;}
+.prd-new-wrap .moim .moim-section03-textbox {}
+.prd-new-wrap .moim .moim-section03-textbox-title {font-weight: 700; font-size: calc(5.8rem / 3); letter-spacing: -0.05em;}
+.prd-new-wrap .moim .moim-section03-textbox-box {}
+.prd-new-wrap .moim .moim-section03-textbox-inner {}
+.prd-new-wrap .moim .moim-section03-textbox-text {font-weight: 900; font-size: calc(13rem / 3); letter-spacing: -0.025em; line-height: 1;}
+.prd-new-wrap .moim .moim-section03-textbox-number {font-weight: 600; font-size: calc(27.2rem / 3); letter-spacing: -0.03em; line-height: 1;}
+.prd-new-wrap .moim .moim-section03-textbox-dot {font-weight: 600; font-size: calc(19.6rem / 3); line-height: 1;}
+.prd-new-wrap .moim .moim-section03-textbox-percent {display: inline-block; font-weight: 600; font-size: calc(16.2rem / 3); line-height: 1;}
+.prd-new-wrap .moim .moim-section03-textbox-subtext {display: block; font-size: calc(3rem / 3);}
+.prd-new-wrap .moim .moim-section03-pink {position: relative; width: 120%; height: 80vh; padding: calc(32rem / 3) 0 0 0; transform: rotate(15deg); box-sizing: border-box;}
+.prd-new-wrap .moim .moim-section03-pink-container {position: relative; height: 100%; padding-top: calc(12.7rem / 3); box-sizing: border-box;}
+.prd-new-wrap .moim .moim-section03-pink .moim-section03-icon-percent {position: absolute; top: 0; left: 0; width: calc(12.4rem/ 3); height: calc(12.4rem / 3); background: url(/resource/img/mmk/adq/moim/icon_percent.png) no-repeat left top / contain; transform: rotate(0);}
+.prd-new-wrap .moim .moim-section03-pink-content {background: #ff61d4; height: 100%; padding: calc(10rem / 3)}
+.prd-new-wrap .moim .moim-section03-pink .moim-section03-textbox-title {color: #8f0e66;}
+.prd-new-wrap .moim .moim-section03-pink .moim-section03-textbox-number {color: #fff;}
+.prd-new-wrap .moim .moim-section03-pink .moim-section03-textbox-dot {}
+.prd-new-wrap .moim .moim-section03-pink .moim-section03-textbox-percent {margin-left: -1.5rem; color: #fff;}
+.prd-new-wrap .moim .moim-section03-pink .moim-section03-textbox-subtext {color: #fff;}
+.prd-new-wrap .moim .moim-section03-green {position: relative; width: 140%; height: 80vh; margin-top: -46vh; padding: 0 0 0 calc(25rem / 3); transform: rotate(-15deg); box-sizing: border-box;}
+.prd-new-wrap .moim .moim-section03-green-container {position: relative; height: 100%; padding-top: calc(12.7rem / 3); box-sizing: border-box;}
+.prd-new-wrap .moim .moim-section03-green .moim-section03-icon-percent {position: absolute; top: 0; left: 0; width: calc(12.4rem/ 3); height: calc(12.4rem / 3); background: url(/resource/img/mmk/adq/moim/icon_percent.png) no-repeat left top / contain; transform: rotate(0);}
+.prd-new-wrap .moim .moim-section03-green .moim-section03-content {background: #77ff25; height: 100%; padding: calc(10rem / 3); box-shadow: -1.5rem 3rem 0px #17008c}
+.prd-new-wrap .moim .moim-section03-green .moim-section03-textbox-wrapper {display: inline-block;}
+.prd-new-wrap .moim .moim-section03-green .moim-section03-textbox-title {color: #1b8723;}
+.prd-new-wrap .moim .moim-section03-green .moim-section03-textbox-inner {padding-top: 1rem; display: flex;}
+.prd-new-wrap .moim .moim-section03-green .moim-section03-textbox-text {display: flex; align-items: flex-start; color: #141414;}
+.prd-new-wrap .moim .moim-section03-green .moim-section03-textbox-number {margin-top: -0.5rem; color: #141414;}
+.prd-new-wrap .moim .moim-section03-green .moim-section03-textbox-percent {display: flex; align-items: flex-end; color: #141414;}
+.prd-new-wrap .moim .moim-section03-green .moim-section03-textbox-subtext {display: block; padding-right: 0.5rem; color: #141414; text-align: right;}
+
+/* 맞춤 프사로 */
+.prd-new-wrap .moim .moim-section04 {overflow: hidden; position: relative; z-index: 0; margin-top: -13rem;}
+.prd-new-wrap .moim .moim-section04-triangle {position: relative; width: 110%; margin-left: -3rem; padding-top: calc(12.4rem / 3); transform: rotate(12deg);}
+.prd-new-wrap .moim .moim-section04-icon-percent {position: absolute; top: calc(12.4rem / 3); left: 0; width: calc(12.4rem/ 3); height: calc(12.4rem / 3); background: url(/resource/img/mmk/adq/moim/icon_percent.png) no-repeat left top / contain; transform: rotate(0);}
+.prd-new-wrap .moim .moim-section04-triangle .moim-section04-triangle-background {width: 100%; height: 17rem; margin: calc(12.4rem / 3) 0 0 0; background: #fff;}
+.prd-new-wrap .moim .moim-section04-container {position: relative; margin-top: -13rem; padding-top: calc(15rem / 3);}
+.prd-new-wrap .moim .moim-section04-content {}
+.prd-new-wrap .moim .moim-section04-header {}
+.prd-new-wrap .moim .moim-section04-title {font-weight: 900; font-size: calc(7.6rem / 3); line-height: calc(98 / 76); letter-spacing: -0.05em;}
+.prd-new-wrap .moim .moim-section04-title-block {display: block; text-align: center;}
+.prd-new-wrap .moim .moim-section04-subtext {padding-top: calc(5rem / 3); color: #656565; font-weight: 500; font-size: calc(3.6rem / 3); line-height: calc(55 / 36); letter-spacing: -0.05em; text-align: center;}
+.prd-new-wrap .moim .moim-section04-box {position: relative; margin-top: calc(5.6rem / 3);}
+.prd-new-wrap .moim .moim-section04-keywords {display: flex; justify-content: center;}
+.prd-new-wrap .moim .moim-section04-keywords-container {overflow: hidden; position: relative; width: calc(26rem / 3); height: calc(10rem / 3); border: 0.2rem solid #17008c; border-radius: 1.6rem;}
+.prd-new-wrap .moim .moim-section04-keywords .swiper-wrapper {flex-direction: column}
+.prd-new-wrap .moim .moim-section04-keywords-item {display: flex; justify-content: center; flex-shrink: 0; height: calc((10rem / 3) - 0.2rem); transition-property: transform;}
+.prd-new-wrap .moim .moim-section04-keywords-box {display: flex; align-items: center; justify-content: center; height: 100%; color: #17008c; font-weight: 700; font-size: calc(5.6rem / 3); letter-spacing: -0.05em; line-height: 1;}
+.prd-new-wrap .moim .moim-section04-keywords-image {margin-left: 0.4rem;}
+.prd-new-wrap .moim .moim-section04-keywords-item-friend .moim-section04-keywords-image {width: calc(5rem / 3);}
+.prd-new-wrap .moim .moim-section04-keywords-item-love .moim-section04-keywords-image {width: calc(4.9rem / 3);}
+.prd-new-wrap .moim .moim-section04-keywords-item-married-couple .moim-section04-keywords-image {width: calc(4.8rem / 3);}
+.prd-new-wrap .moim .moim-section04-keywords-item-family .moim-section04-keywords-image {width: calc(4.5rem / 3);}
+.prd-new-wrap .moim .moim-section04-keywords-item-club .moim-section04-keywords-image {width: calc(7rem / 3);}
+.prd-new-wrap .moim .moim-section04-arrow {position: absolute; top: 2rem; left: 50%; width: calc(10.2rem / 3); margin: 0 0 0 -9rem;}
+.prd-new-wrap .moim .moim-section04-visual {overflow: hidden; width: 100%; height: 100%; margin-top: calc(5.6rem / 3); padding-bottom: calc(14rem / 3);}
+.prd-new-wrap .moim .moim-section04-visual-content {position: relative; clip-path: inset(15% 5% 27% 5% round 2rem); transition: clip-path .4s ease;}
+.prd-new-wrap .moim .moim-section04-visual-image {width: 100%; filter: brightness(0.9); transition: filter .3s ease;}
+.prd-new-wrap .moim .moim-section04-list {position: absolute; bottom: calc(18rem / 3); padding: 0 calc(2.6rem / 3);}
+.prd-new-wrap .moim .moim-section04-item {transform: translateY(50px); opacity: 0;}
+.prd-new-wrap .moim .moim-section04-item + .moim-section04-item {margin-top: calc(1.6rem / 3);}
+.prd-new-wrap .moim .moim-section04-item img {width: 100%;}
+.prd-new-wrap .moim .moim-section04-visual .swiper-slide {overflow: hidden; position: relative; width: calc(47.4rem / 3); border-radius: 2rem;}
+.prd-new-wrap .moim .moim-section04-visual .swiper-slide-active {z-index: 1; box-shadow: 2rem 2rem 2.5rem rgba(92, 99, 95, 0.1);}
+.prd-new-wrap .moim .moim-section04-visual .swiper-slide-active .moim-section04-visual-content {clip-path: inset(0 0 0 0 round 2rem);}
+.prd-new-wrap .moim .moim-section04-visual .swiper-slide-active .moim-section04-visual-image {filter: brightness(1);}
+.prd-new-wrap .moim .moim-section04-visual .swiper-slide-active .moim-section04-item {transform: translateY(0); opacity: 1; transition: transform .4s ease, opacity .3s ease;}
+.prd-new-wrap .moim .moim-section04-visual .swiper-slide-active .moim-section04-item:nth-child(1) {transition-delay: .3s;}
+.prd-new-wrap .moim .moim-section04-visual .swiper-slide-active .moim-section04-item:nth-child(2) {transition-delay: .6s;}
+.prd-new-wrap .moim .moim-section04-visual .swiper-slide-active .moim-section04-item:nth-child(3) {transition-delay: .9s;}
+.prd-new-wrap .moim .moim-section04-visual .swiper-slide-active .moim-section04-item:nth-child(4) {transition-delay: 1.2s;}
+
+/* 저는 이름 대신 */
+.prd-new-wrap .moim .moim-section05 {position: relative; height: 100vh; background: #81ff25;}
+.prd-new-wrap .moim .moim-section05-container {display: flex; align-items: center; justify-content: center; height: 100%;}
+.prd-new-wrap .moim .moim-section05-content {}
+.prd-new-wrap .moim .moim-section05-title {position: relative; color: #141414; font-weight: 900; font-size: calc(10.8rem / 3); letter-spacing: -0.05em; text-align: center;}
+.prd-new-wrap .moim .moim-section05-title-block {display: block;}
+.prd-new-wrap .moim .moim-section05-name {position: relative; left: -2rem; margin-top: -2rem;}
+.prd-new-wrap .moim .moim-section05-name-lottie {width: calc(83rem / 3); margin: 0 auto;}
+.prd-new-wrap .moim .moim-section05-arrow {position: absolute; top: 1.5rem; right: 0;}
+.prd-new-wrap .moim .moim-section05-arrow-lottie {width: calc(12rem / 3);}
+.prd-new-wrap .moim .moim-section05-subtext {margin-top: calc(5.6rem / 3); color: #141414; font-weight: 500; font-size: calc(4rem / 3); text-align: center;}
+
+/* 총무님은 쉬세요 */
+.prd-new-wrap .moim .ui-moim-section06-stage {height: 150vh;}
+.prd-new-wrap .moim .moim-section06-blue-stage {height: 150vh;}
+.prd-new-wrap .moim .moim-section06 {position: absolute; top: 0; width: 100%; height: 100%;}
+.prd-new-wrap .moim .moim-section06-container {display: flex; align-items: center; justify-content: center; position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+.prd-new-wrap .moim .moim-section06-content {}
+.prd-new-wrap .moim .moim-section06-title {color: #141414; font-weight: 900; font-size: calc(9.2rem / 3); letter-spacing: -0.05em; line-height: calc(119 / 92); text-align: center;}
+.prd-new-wrap .moim .moim-section06-title-block {display: block;}
+.prd-new-wrap .moim .moim-section06-title-point {color: #2030ff;}
+.prd-new-wrap .moim .moim-section06-visual {width: calc(88rem / 3); margin-top: -4rem;}
+.prd-new-wrap .moim .moim-section06-image {width: 100%;}
+.prd-new-wrap .moim .moim-section06-subtext {margin-top: calc(7.6rem / 3); color: #141414; font-weight: 500; font-size: calc(3.8rem / 3); text-align: center; letter-spacing: -0.05em; line-height: calc(58 / 38);}
+.prd-new-wrap .moim .moim-section06-blue {background: #2030ff;}
+.prd-new-wrap .moim .moim-section06-blue .moim-section06-title {color: #fff;}
+.prd-new-wrap .moim .moim-section06-blue .moim-section06-title-point {color: #81ff25;}
+.prd-new-wrap .moim .moim-section06-blue .moim-section06-subtext {color: #fff;}
+
+
+/* 살다보면 여유 없을 때도 있잖아요 */
+.prd-new-wrap .moim .moim-sticky-wrappper-section07 {background: #2030ff}
+.prd-new-wrap .moim .moim-section07-stage {height: 150vh;}
+.prd-new-wrap .moim .moim-section07 {position: relative; height: 100%; background: #2030ff;}
+.prd-new-wrap .moim .moim-section07-container {display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;}
+.prd-new-wrap .moim .moim-section07-content {}
+.prd-new-wrap .moim .moim-section07-title {color: #fff; font-weight: 900; font-size: calc(7.6rem / 3); letter-spacing: -0.05em; text-align: center; line-height: calc(98 / 76);}
+.prd-new-wrap .moim .moim-section07-title-block {display: block;}
+.prd-new-wrap .moim .moim-section07-subtext {margin-top: calc(5rem / 3); color: #e2dfff; font-weight: 500; font-size: calc(3.6rem / 3); text-align: center; letter-spacing: -0.05em; line-height: calc(55 / 36);}
+.prd-new-wrap .moim .moim-section07-subtext-block {display: block;}
+.prd-new-wrap .moim .moim-section07-visual {width: calc(102.3rem / 3); margin: calc(8rem / 3) auto 0;}
+
+/* 모임통장 그게 모임? */
+.prd-new-wrap .moim .moim-section08 {padding: calc(8rem / 3) calc(5rem / 3) calc(13rem / 3);}
+.prd-new-wrap .moim .moim-section08-content {padding: calc(11.2rem / 3) calc(4.8rem / 3) calc(13rem / 3); border-radius: 20px; background: #d9e0ea;}
+.prd-new-wrap .moim .moim-section08-title {padding-top: calc(14.6rem / 3); background: url(/resource/img/mmk/adq/moim/img_section08_header.png) no-repeat top center / calc(13.4rem / 3) auto; color: #141414; font-weight: 900; font-size: calc(7.6rem / 3); letter-spacing: -0.05em; text-align: center; line-height: calc(98 / 76);}
+.prd-new-wrap .moim .moim-section08-title-point {color: #2030ff;}
+.prd-new-wrap .moim .moim-section08-list {margin-top: calc(8rem / 3);}
+.prd-new-wrap .moim .moim-section08-item {position: relative; padding-top: calc(5.2rem / 3);}
+.prd-new-wrap .moim .moim-section08-item-emoji {margin-top: -1.5rem !important;}
+.prd-new-wrap .moim .moim-section08-item + .moim-section08-item {margin-top: calc(2rem / 3);}
+.prd-new-wrap .moim .moim-section08-icon {position: absolute; top: 0; width: calc(8.8rem / 3);}
+.prd-new-wrap .moim .moim-section08-icon img {width: 100%;}
+.prd-new-wrap .moim .moim-section08-text-inner {display: flex; align-items: center; height: 100%;}
+.prd-new-wrap .moim .moim-section08-emoticon {width: calc(6.8rem / 3);}
+.prd-new-wrap .moim .moim-section08-text + .moim-section08-text {margin-top: calc(1.6rem / 3);}
+.prd-new-wrap .moim .moim-section08-text-box {display: inline-block; position: relative; height: calc(8.8rem / 3); padding: 0 calc(3.4rem / 3); border-radius: 12px; font-weight: 500; font-size: calc(3.6rem / 3); line-height: 1; letter-spacing: -0.05em; vertical-align: middle; box-sizing: border-box;}
+.prd-new-wrap .moim .moim-section08-item-user01 {padding-left: calc(10.6rem / 3);}
+.prd-new-wrap .moim .moim-section08-item-user01 .moim-section08-icon {left: 0;}
+.prd-new-wrap .moim .moim-section08-item-user01 .moim-section08-text:first-of-type .moim-section08-text-box::before {position: absolute; top: 0; left: -0.2rem; width: calc(2rem / 3); height: calc(2rem / 3); background: url(/resource/img/mmk/adq/moim/icon_section08_chat_user01.png) no-repeat left top / contain; content: "";}
+.prd-new-wrap .moim .moim-section08-item-user01 .moim-section08-text-box {background: #fff;}
+.prd-new-wrap .moim .moim-section08-item-user02 {padding-right: calc(10.6rem / 3); text-align: right;}
+.prd-new-wrap .moim .moim-section08-item-user02 .moim-section08-icon {right: 0;}
+.prd-new-wrap .moim .moim-section08-item-user02 .moim-section08-text-box {background: #ffe500;}
+.prd-new-wrap .moim .moim-section08-item-user02 .moim-section08-text:first-of-type .moim-section08-text-box::before {position: absolute; top: 0; right: -0.2rem; width: calc(2rem / 3); height: calc(2rem / 3); background: url(/resource/img/mmk/adq/moim/icon_section08_chat_user02.png) no-repeat left top / contain; content: "";}
+.prd-new-wrap .moim .moim-section08-button-box {margin-top: calc(8.2rem / 3);}
+.prd-new-wrap .moim .moim-section08-button {display: flex; align-items: center; justify-content: center; height: calc(18.6rem / 3); border-radius: calc(9.3rem / 3); background: #2030ff;}
+.prd-new-wrap .moim .moim-section08-button-text {padding-right: calc(5rem / 3); background: url(/resource/img/mmk/adq/moim/icon_arrow01.png) no-repeat right center / calc(2rem / 3) auto; color: #fff; font-size: calc(6rem / 3); letter-spacing: -0.05em;}
+.prd-new-wrap .moim .moim-section08-visual-emoji01 {display: flex; justify-content: flex-end; margin-top: calc(2.8rem / 3); padding: 0 calc(10.6rem / 3) 0 0;}
+.prd-new-wrap .moim .moim-section08-emoji01 {width: calc(20rem / 3);}
+
+.prd-new-wrap .moim .moim-section08-visual-emoji02 {display: flex; justify-content: flex-start; padding: 0 0 0 calc(10.6rem / 3);}
+.prd-new-wrap .moim .moim-section08-emoji02 {width: calc(20rem / 3);}
+.prd-new-wrap .moim .moim-section08-visual-emoji03 {display: flex; justify-content: flex-end; margin-top: calc(2.8rem / 3); padding: 0 calc(10.6rem / 3) 0 0;}
+.prd-new-wrap .moim .moim-section08-emoji03 {width: calc(20rem / 3);}
