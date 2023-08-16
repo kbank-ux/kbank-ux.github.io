@@ -19,7 +19,7 @@ $(function () {
             container: '.ui-life-section01-stage',
             actions: [
                 {
-                    visibility: [0,0.45],
+                    visibility: [0,0.9],
                     type: 'seek',
                     frames: [0, 189],
                 },
@@ -34,7 +34,7 @@ $(function () {
             container: '.ui-life-sticky-wrappper-section02',
             actions: [
                 {
-                    visibility: [0,0.42],
+                    visibility: [0,0.85],
                     type: 'seek',
                     frames: [0, 146],
                 },
@@ -61,12 +61,12 @@ $(function () {
             container: '.ui-life-section03-blue-stage-book',
             actions: [
                 {
-                    visibility: [0, 0.1],
+                    visibility: [0, 0.2],
                     type: 'stop',
                     frames: [18],
                 },
                 {
-                    visibility: [0.2, 0.45],
+                    visibility: [0.2, 0.7],
                     type: 'seek',
                     frames: [18, 80],
                 },
@@ -184,7 +184,7 @@ $(function () {
             container: '.ui-life-section05-dial-stage',
             actions: [
                 {
-                    visibility: [0,0.25],
+                    visibility: [0,0.5],
                     type: 'seek',
                     frames: [20, 134],
                 },
@@ -223,7 +223,7 @@ $(function () {
             container: '.ui-life-section06-calendar-stage',
             actions: [
                 {
-                    visibility: [0,0.25],
+                    visibility: [0,0.5],
                     type: 'seek',
                     frames: [0, 160],
                 },
