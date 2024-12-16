@@ -9,6 +9,7 @@
     "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "gh-pages": "^6.2.0",
     "parcel": "^2.13.0",
     "path-browserify": "^1.0.0",
     "prettier": "^3.3.3",
@@ -22,7 +23,7 @@
     "lint": "eslint --fix src/**/*.ts",
     "dev": "parcel index.html",
     "build": "parcel build index.html --public-url /roulette/",
-    "deploy": "gh-pages -d dist -b gh-pages"
+    "deploy": "yarn build && rm -rf roulette && mv dist roulette && gh-pages -d roulette && mv roulette dist"
   },
   "dependencies": {
     "box2d-wasm": "^7.0.0"
