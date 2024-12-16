@@ -21,8 +21,7 @@
   "scripts": {
     "lint": "eslint --fix src/**/*.ts",
     "dev": "parcel index.html",
-    "build": "parcel build index.html --public-url /roulette/",
-    "deploy": "yarn build && cp -R dist/* ../roulette && git add .. && git commit -m 'Deploy roulette game' && git push origin main"
+    "build": "parcel build index.html --public-url /roulette/"
   },
   "dependencies": {
     "box2d-wasm": "^7.0.0"
