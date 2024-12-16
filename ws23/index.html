@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비밀번호 확인</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script_main.js"></script>
+</head>
+<body>
+    <div class="password-container" style="margin-top: 100px;">
+        <h2>비밀번호를 입력해주세요</h2>
+        <label for="password">비밀번호:</label>
+        <input type="password" id="password">
+        <br><br>
+        <label for="mode">모드 선택:</label>
+        <select id="mode">
+            <option value="draw">조편성</option>
+            <option value="room">방배정</option>
+        </select>
+        <br>
+        <button id="submit">확인</button>
+        <p class="error-message" style="display:none;">비밀번호가 틀렸습니다.</p>
+    </div>
+</body>
+</html>

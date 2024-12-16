@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <title>방배정 추첨을 해봅시다</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="./style.css">
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <div>
+
+      <table>
+        <tr>
+          <td colspan="9" style="text-align: center; width: 100vw;">
+            <h1>방배정 추첨을 해봅시다!</h1>
+            <div class="lottery-box">
+              <div class="request-ticket"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center; width: 50%;">            
+
+          3인 1실 x 14객실(한 곳은 2인)<br />
+            <button class="draw-btn" id="draw-btn1">
+              한번에 3명씩 추첨!
+            </button>
+
+            <div style="text-align:left">
+              <h4>[방배정 명단]</h4>
+              <div
+                class="history-draw"
+                id="history-draw-btn1"
+                style="text-align: left; font-weight: 700;"
+              >
+                <ol></ol>
+              </div>
+            </div>
+          </td>
+          <td style="text-align: center; width: 50%;">
+
+                3인 1실 x 3객실(한 곳은 2인)<br />
+            <button class="draw-btn" id="draw-btn2">
+                한번에 3명씩 추첨!
+            </button>
+
+            <div style="text-align:left">
+              <h4>[방배정 명단]</h4>
+              <div
+                class="history-draw"
+                id="history-draw-btn2"
+                style="text-align: left; font-weight: 700;"
+              >
+                <ol></ol>
+              </div>
+            </div>
+          </td>
+          
+        </tr>
+        <tr>
+          <td colspan="1">
+            <div style="width :100%;">
+              <h4>[남은 인원]</h4>
+              <div
+                class="ticket-list-all"
+                id="ticket-list-1"
+                style="text-align: left;"
+              >
+                <ul></ul>
+              </div>
+            </div>
+          </td>
+          <td colspan="1">
+            <div style="width :100%;">
+              <h4>[남은 인원]</h4>
+              <div
+                class="ticket-list-all"
+                id="ticket-list-2"
+                style="text-align: left;"
+              >
+                <ul></ul>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
